@@ -30,7 +30,9 @@ jobs:
         IMAGE_TAG_VERSION=$(cat "VERSION")
         echo "Building version $IMAGE_TAG_VERSION"
         IMAGE_TAG=iappx/liquibase-admin:$IMAGE_TAG_VERSION
+        cd LiquibaseAdminFrontend
         cp template.npmrc .npmrc
         sed -i "s/{{ACCESS_TOKEN}}/${{ secrets.GITLAB_ACCESS_TOKEN }}/" .npmrc
-        docker build -t $IMAGE_TAG .
+        cd ../
+        docker build -t $IMAGE_TAG -f LiquibaseAdmin/Dockerfile .
         docker push $IMAGE_TAG
