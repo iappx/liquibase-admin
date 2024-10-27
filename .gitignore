@@ -367,3 +367,4 @@ FodyWeavers.xsd
 /data
 /deploy
 /docker-compose.*
+.idea
