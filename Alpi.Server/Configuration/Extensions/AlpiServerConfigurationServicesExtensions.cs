@@ -6,12 +6,6 @@ namespace Microsoft.Extensions.DependencyInjection
 {
     public static class AlpiServerConfigurationServicesExtensions
     {
-        /// <summary>
-        /// Загружает модели конфигурации
-        /// </summary>
-        /// <param name="services"></param>
-        /// <param name="configuration">Объект конфигурации</param>
-        /// <param name="assemblies">Сборки</param>
         public static void LoadConfigurationEntities(this IServiceCollection services, IConfigurationRoot configuration, Assembly[] assemblies)
         {
             for (int i = 0; i < assemblies.Length; i++)
@@ -20,12 +14,6 @@ namespace Microsoft.Extensions.DependencyInjection
             }
         }
 
-        /// <summary>
-        /// Загружает модели конфигурации
-        /// </summary>
-        /// <param name="services"></param>
-        /// <param name="configuration">Объект конфигурации</param>
-        /// <param name="assembly">Сборка</param>
         public static void LoadConfigurationEntities(this IServiceCollection services, IConfigurationRoot configuration, Assembly assembly)
         {
             Type[] types = assembly.GetTypes();

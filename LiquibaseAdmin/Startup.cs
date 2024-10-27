@@ -57,11 +57,6 @@ namespace LiquibaseAdmin
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             services.RegisterAutoinjections(Assembly.GetExecutingAssembly());
-
-            services.AddCors(options =>
-            {
-                options.AddPolicy(DefaultCorsPolicy.Name, new DefaultCorsPolicy("https://liquibase.mlmsoft.app"));
-            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

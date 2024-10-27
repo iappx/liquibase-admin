@@ -2,7 +2,7 @@ services:
   liquibase-admin:
     container_name: liquibase-admin
     restart: always
-    image: iappx/liquibase-admin:0.0.1
+    image: iappx/liquibase-admin:0.0.3
     environment:
       DB_HOST: liquibase-db
       DB_PORT: 5432
