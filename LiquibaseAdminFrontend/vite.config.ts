@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import * as path from 'path'
 import vue from '@vitejs/plugin-vue'
 
-export default defineConfig(() => {
+export default defineConfig(({ mode }) => {
     return {
         plugins: [vue()],
         base: '',
@@ -20,7 +20,7 @@ export default defineConfig(() => {
         build: {
             chunkSizeWarningLimit: 1024,
             cssCodeSplit: false,
-            outDir: './dist',
+            outDir: mode == 'dev' ? './../LiquibaseAdmin/wwwroot' : './dist',
             assetsDir: 'assets',
             emptyOutDir: true,
         },

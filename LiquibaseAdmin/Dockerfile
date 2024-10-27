@@ -30,8 +30,18 @@ FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
 RUN dotnet publish "./LiquibaseAdmin.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
+
+FROM node:current-alpine3.18 AS frontend-build
+WORKDIR /app
+COPY ./LiquibaseAdminFrontend .
+RUN npm i
+RUN npm run build
+
+
 # Этот этап используется в рабочей среде или при запуске из VS в обычном режиме (по умолчанию, когда конфигурация отладки не используется)
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+COPY --from=publish /src/LiquibaseAdmin/appConfig appConfig
+COPY --from=frontend-build /app/dist wwwroot/.
 ENTRYPOINT ["dotnet", "LiquibaseAdmin.dll"]

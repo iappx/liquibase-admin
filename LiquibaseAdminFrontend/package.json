@@ -5,6 +5,7 @@
   "scripts": {
     "serve": "vite",
     "build": "vue-tsc --noEmit && vite build",
+    "build-dev": "vue-tsc --noEmit && vite build --mode dev",
     "build-only": "vite build",
     "build-watch": "vite build --watch",
     "lint": "vue-cli-service lint"
