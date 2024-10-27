@@ -364,7 +364,6 @@ FodyWeavers.xsd
 
 /LiquibaseAdmin/appConfig/*
 !/LiquibaseAdmin/appConfig/app.yaml
-/data
-/deploy
+/compose/data
 /docker-compose.*
 .idea

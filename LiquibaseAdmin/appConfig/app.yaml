@@ -9,5 +9,5 @@ Database:
     User: ${DB_USER}
     Pass: ${DB_PASS}
 Liquibase:
-    ChangelogDir: ${LIQUIBASE_CHANGELOG_DIR}
-    ChangelogEntryFile: ${LIQUIBASE_CHANGELOG_ENTRY_FILE}
+    ChangelogDir: ${LIQ_CHANGELOG_DIR}
+    ChangelogEntryFile: ${LIQ_CHANGELOG_ENTRY_FILE}

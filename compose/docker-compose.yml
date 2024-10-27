@@ -1,0 +1,41 @@
+services:
+  liquibase-admin:
+    container_name: liquibase-admin
+    restart: always
+    image: iappx/liquibase-admin:0.0.1
+    environment:
+      DB_HOST: liquibase-db
+      DB_PORT: 5432
+      DB_NAME:
+      DB_USER:
+      DB_PASS:
+      LIQ_CHANGELOG_DIR:
+      LIQ_CHANGELOG_ENTRY_FILE:
+    volumes:
+      - ./data/changelog:/liquibase/changelog
+    ports:
+      - "8080:8080"
+    depends_on:
+      - pg
+    networks:
+      - service
+  
+  pg:
+    image: postgres:17
+    restart: always
+    container_name: liquibase-db
+    hostname: liquibase-db
+    volumes:
+      - ./data/db/pgsql:/var/lib/postgresql/data
+    tmpfs:
+      - /tmp
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_DB: ${DB_NAME}
+      PGDATA: /var/lib/postgresql/data
+    networks:
+      - service
+
+networks:
+  service:
