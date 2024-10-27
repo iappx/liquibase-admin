@@ -1,0 +1,1 @@
+export type ApiErrorHandler = (error: Record<string, any>) => void | Promise<void>

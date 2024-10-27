@@ -1,0 +1,53 @@
+@import './colors';
+
+.main-layout {
+  background-color: @component-background;
+}
+
+.ant-layout-sider, .ant-menu-dark {
+  background-color: @component-background;
+}
+
+.main-page-header {
+  background-color: @component-background;
+}
+
+.ghost-tag {
+  background-color: @component-background;
+}
+
+#user-layout .container {
+  background: @body-background url('@/assets/images/background/user-background.svg') no-repeat 50%;
+}
+
+.header-tools-item {
+  color: @text-color-inverse;
+}
+
+.user-layout-wrapper {
+  .header-tools {
+    margin-left: 28px;
+  }
+
+  .header-tools-item {
+    color: @text-color !important;
+  }
+
+  .header-tools-item:hover {
+    background-color: mix(@blue-6, @text-color, 80%);
+  }
+
+  .container {
+    color: @text-color;
+
+    .form-icon {
+      color: @text-color;
+    }
+  }
+}
+
+.list-hover {
+  .ant-list-item:hover {
+    background-color:  mix(@text-color, @body-background, 6%);
+  }
+}

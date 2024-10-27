@@ -1,0 +1,13 @@
+﻿Logging:
+    LogLevel: 
+        Default: Warning
+        Microsoft.AspNetCore: Warning
+Database:
+    Host: ${DB_HOST}
+    Port: ${DB_PORT}
+    Database: ${DB_NAME}
+    User: ${DB_USER}
+    Pass: ${DB_PASS}
+Liquibase:
+    ChangelogDir: ${LIQUIBASE_CHANGELOG_DIR}
+    ChangelogEntryFile: ${LIQUIBASE_CHANGELOG_ENTRY_FILE}
